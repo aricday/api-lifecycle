@@ -1,0 +1,755 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Customer",
+    "version": "v1"
+  },
+  "host": "34.210.71.26:8081",
+  "schemes": [
+    "http"
+  ],
+  "basePath": "/rest/default/Customer/v1",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "Table main:Customer",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/main:Customer/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "number",
+          "format": "int32"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Table main:Customer"
+        ],
+        "summary": "Retrieve a specific main:Customer object",
+        "description": "# Retrieve a specific main:Customer object",
+        "produces": [
+          "application/json",
+          "application/xml",
+          "text/xml",
+          "text/csv"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/pagesize"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/logging"
+          },
+          {
+            "$ref": "#/parameters/downloadName"
+          },
+          {
+            "$ref": "#/parameters/deferred"
+          },
+          {
+            "$ref": "#/parameters/inline"
+          },
+          {
+            "$ref": "#/parameters/inlinelimit"
+          },
+          {
+            "$ref": "#/parameters/chunksize"
+          },
+          {
+            "$ref": "#/parameters/nometa"
+          },
+          {
+            "$ref": "#/parameters/auth"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Zero or one main:Customer objects",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/main:Customer"
+              }
+            }
+          },
+          "500": {
+            "description": "error return",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Table main:Customer"
+        ],
+        "summary": "Update a specific main:Customer object",
+        "description": "# Update a specific main:Customer object",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/main:Customer"
+            }
+          },
+          {
+            "$ref": "#/parameters/logging"
+          },
+          {
+            "$ref": "#/parameters/txsummary"
+          },
+          {
+            "$ref": "#/parameters/rulesummary"
+          },
+          {
+            "$ref": "#/parameters/deferred"
+          },
+          {
+            "$ref": "#/parameters/inline"
+          },
+          {
+            "$ref": "#/parameters/inlinelimit"
+          },
+          {
+            "$ref": "#/parameters/auth"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Zero or one main:Customer objects",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "txsummary": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/unspecifiedArrayItemObject"
+                  }
+                }
+              },
+              "required": [
+                "statusCode"
+              ]
+            }
+          },
+          "409": {
+            "description": "error return, typically for optimistic locking (checksum mismatch)",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          },
+          "500": {
+            "description": "error return",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Table main:Customer"
+        ],
+        "summary": "Delete a specific main:Customer object",
+        "description": "# Delete a specific main:Customer object",
+        "parameters": [
+          {
+            "$ref": "#/parameters/checksum"
+          },
+          {
+            "$ref": "#/parameters/logging"
+          },
+          {
+            "$ref": "#/parameters/txsummary"
+          },
+          {
+            "$ref": "#/parameters/rulesummary"
+          },
+          {
+            "$ref": "#/parameters/deferred"
+          },
+          {
+            "$ref": "#/parameters/inline"
+          },
+          {
+            "$ref": "#/parameters/inlinelimit"
+          },
+          {
+            "$ref": "#/parameters/ignoredeleted"
+          },
+          {
+            "$ref": "#/parameters/auth"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Zero or one main:Customer objects",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "txsummary": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/unspecifiedArrayItemObject"
+                  }
+                }
+              },
+              "required": [
+                "statusCode"
+              ]
+            }
+          },
+          "404": {
+            "description": "error return, when object does not exist or not visible due to security.  See ignoredeleted parameter to have this be a 200 response instead.",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          },
+          "409": {
+            "description": "error return, typically for optimistic locking (checksum mismatch)",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          },
+          "500": {
+            "description": "error return",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/main:Customer": {
+      "get": {
+        "tags": [
+          "Table main:Customer"
+        ],
+        "summary": "Retrieve zero or more main:Customer objects",
+        "description": "# Retrieve zero or more main:Customer objects",
+        "produces": [
+          "application/json",
+          "application/xml",
+          "text/xml",
+          "text/csv"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/pagesize"
+          },
+          {
+            "$ref": "#/parameters/offset"
+          },
+          {
+            "$ref": "#/parameters/logging"
+          },
+          {
+            "$ref": "#/parameters/downloadName"
+          },
+          {
+            "$ref": "#/parameters/deferred"
+          },
+          {
+            "$ref": "#/parameters/inline"
+          },
+          {
+            "$ref": "#/parameters/inlinelimit"
+          },
+          {
+            "$ref": "#/parameters/chunksize"
+          },
+          {
+            "$ref": "#/parameters/nometa"
+          },
+          {
+            "$ref": "#/parameters/auth"
+          },
+          {
+            "$ref": "#/parameters/filter"
+          },
+          {
+            "$ref": "#/parameters/sysfilter"
+          },
+          {
+            "$ref": "#/parameters/order"
+          },
+          {
+            "$ref": "#/parameters/sysorder"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Zero or more main:Customer objects",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/main:Customer"
+              }
+            }
+          },
+          "500": {
+            "description": "error return",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Table main:Customer"
+        ],
+        "summary": "Insert zero or more main:Customer objects",
+        "description": "# Insert zero or more main:Customer objects",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/main:Customer"
+              }
+            }
+          },
+          {
+            "$ref": "#/parameters/logging"
+          },
+          {
+            "$ref": "#/parameters/txsummary"
+          },
+          {
+            "$ref": "#/parameters/rulesummary"
+          },
+          {
+            "$ref": "#/parameters/deferred"
+          },
+          {
+            "$ref": "#/parameters/inline"
+          },
+          {
+            "$ref": "#/parameters/inlinelimit"
+          },
+          {
+            "$ref": "#/parameters/auth"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Zero or one main:Customer objects",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "txsummary": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/unspecifiedArrayItemObject"
+                  }
+                }
+              },
+              "required": [
+                "statusCode"
+              ]
+            }
+          },
+          "500": {
+            "description": "error return",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Table main:Customer"
+        ],
+        "summary": "Update zero or more main:Customer objects",
+        "description": "# Update zero or more main:Customer objects",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/main:Customer"
+              }
+            }
+          },
+          {
+            "$ref": "#/parameters/logging"
+          },
+          {
+            "$ref": "#/parameters/txsummary"
+          },
+          {
+            "$ref": "#/parameters/rulesummary"
+          },
+          {
+            "$ref": "#/parameters/deferred"
+          },
+          {
+            "$ref": "#/parameters/inline"
+          },
+          {
+            "$ref": "#/parameters/inlinelimit"
+          },
+          {
+            "$ref": "#/parameters/auth"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Zero or one main:Customer objects",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "txsummary": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/unspecifiedArrayItemObject"
+                  }
+                }
+              },
+              "required": [
+                "statusCode"
+              ]
+            }
+          },
+          "409": {
+            "description": "error return, typically for optimistic locking (checksum mismatch)",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          },
+          "500": {
+            "description": "error return",
+            "schema": {
+              "$ref": "#/definitions/errorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "unspecifiedArrayItemObject": {
+      "type": "object",
+      "properties": {
+      },
+      "additionalProperties": true
+    },
+    "errorResponse": {
+      "type": "object",
+      "properties": {
+        "statusCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "errorCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "helpUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "statusCode",
+        "errorCode",
+        "errorMessage",
+        "helpUrl"
+      ]
+    },
+    "main:Customer": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "format": "int32"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "company_name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "phone1": {
+          "type": "string"
+        },
+        "phone2": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "web": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  },
+  "parameters": {
+    "auth": {
+      "name": "auth",
+      "description": "Auth Token: this is a convenience so you can do GET etc. with the value in a URL",
+      "type": "string",
+      "in": "query",
+      "allowEmptyValue": false
+    },
+    "filter": {
+      "name": "filter",
+      "description": "Arbitrary search criteria",
+      "in": "query",
+      "required": false,
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "collectionFormat": "multi",
+      "allowEmptyValue": false
+    },
+    "sysfilter": {
+      "name": "sysfilter",
+      "description": "Structured search criteria",
+      "in": "query",
+      "required": false,
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "collectionFormat": "multi",
+      "allowEmptyValue": false
+    },
+    "order": {
+      "name": "order",
+      "description": "Order by attributes, eg: name,age desc",
+      "in": "query",
+      "required": false,
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "collectionFormat": "multi",
+      "allowEmptyValue": false
+    },
+    "sysorder": {
+      "name": "sysorder",
+      "description": "Structured sort",
+      "in": "query",
+      "required": false,
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "collectionFormat": "multi",
+      "allowEmptyValue": false
+    },
+    "checksum": {
+      "name": "checksum",
+      "description": "The checksum for the object to deleted (can be _override_ to bypass optimistic locking",
+      "in": "query",
+      "type": "string",
+      "required": true,
+      "allowEmptyValue": false
+    },
+    "txsummary": {
+      "name": "txsummary",
+      "description": "If true, the response will include a description of all database objects updated during the transaction.  Default value is 'true'",
+      "in": "query",
+      "type": "boolean",
+      "required": false,
+      "allowEmptyValue": false
+    },
+    "rulesummary": {
+      "name": "rulesummary",
+      "description": "If true. the response will include a description of all the rules executed during the transaction",
+      "in": "query",
+      "type": "boolean",
+      "required": false,
+      "allowEmptyValue": false
+    },
+    "logging": {
+      "name": "logging",
+      "description": "Sets the logging levels for this request only",
+      "in": "query",
+      "type": "string",
+      "required": false,
+      "allowEmptyValue": false
+    },
+    "downloadName": {
+      "name": "downloadName",
+      "description": "Used to specified download name.",
+      "in": "query",
+      "type": "string",
+      "required": false,
+      "allowEmptyValue": false
+    },
+    "pagesize": {
+      "name": "pagesize",
+      "description": "Sets the number of objects to retrieve in one batch. The default is 20. You cannot make this number smaller than 1, or larger than 5000.",
+      "in": "query",
+      "type": "integer",
+      "format": "int32",
+      "required": false,
+      "allowEmptyValue": false
+    },
+    "offset": {
+      "name": "offset",
+      "description": "This is generated internally for pagination in next_batch links. It is not recommended to set this manually, as security and JavaScript filters can make this value jump by more than pagesize for each page.",
+      "in": "query",
+      "type": "integer",
+      "format": "int32",
+      "required": false,
+      "allowEmptyValue": false
+    },
+    "id":{
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "number",
+          "format": "int32"
+    },
+    "deferred": {
+      "name": "deferred",
+      "description": "Comma-separated list of Resource.attribute names that will be returned as deferred links. This applies only to *BINARY* and *STRING* data. _'deferred'_ values take precedence over _'inline'_ and _'inlinelimit'_ values. The value is also used for transaction summaries, but database names must be used.",
+      "in": "query",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "collectionFormat": "multi",
+      "required": false,
+      "allowEmptyValue": false
+    },
+    "inline": {
+      "name": "inline",
+      "description": "Comma-separated list of Resource.attribute names that will be returned as inline values. This applies only to *BINARY* and *STRING* data. _'deferred'_ values take precedence over _'inline'_ and _'inlinelimit'_ values. The value is also used for transaction summaries, but database names must be used.",
+      "in": "query",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "collectionFormat": "multi",
+      "required": false,
+      "allowEmptyValue": false
+    },
+    "inlinelimit": {
+      "name": "inlinelimit",
+      "description": "Overrides the project setting. Number of characters or bytes used to decide whether a value is returned inline in the JSON or deferred to a link for *BINARY* or *STRING* data. Both _'deferred'_ and _'inline'_ take precedence over _'inlinelimit'_ values. A  value of 0 will result in ALL non-null values returned as a link. A value of -1 will result in all values returned as a link.",
+      "in": "query",
+      "type": "integer",
+      "format": "int32",
+      "required": false,
+      "allowEmptyValue": false
+    },
+    "procrowlimit": {
+      "name": "procrowlimit",
+      "description": "Overrides the project setting. Number of rows to return from each result set produced (if any) by a PROCEDURE. Any further rows will be discard and cannot be retrieved. A special value is returned to tell the caller if this happens",
+      "in": "query",
+      "type": "integer",
+      "format": "int32",
+      "required": false,
+      "allowEmptyValue": false
+    },
+    "procinlinelimit": {
+      "name": "procinlinelimit",
+      "description": "Overrides the project setting. See _'inlinelimit'_, but applies to values returned by procedure. Values exceeding this limit cannot be obtained later.",
+      "in": "query",
+      "type": "integer",
+      "format": "int32",
+      "required": false,
+      "allowEmptyValue": false
+    },
+    "chunksize": {
+      "name": "chunksize",
+      "description": "A specialized performance value used to control query generation for contained resources",
+      "in": "query",
+      "type": "integer",
+      "format": "int32",
+      "required": false,
+      "allowEmptyValue": false
+    },
+    "ignoredeleted": {
+      "name": "ignoredeleted",
+      "description": "The optional parameter 'ignoredeleted' can be added to control the response when the resource is not found. Normally, a DELETE on a non-existent resource results in a 404 - No such object error message. While this is correctly 'RESTful' and idempotent, it may not be the wanted result. For these times, 'ignoredeleted' parameter may be added. The call will still be idempotent, but will return 200 with an empty txsummary.",
+      "in": "query",
+      "type": "boolean",
+      "required": false,
+      "allowEmptyValue": true
+    },
+    "nometa": {
+      "name": "nometa",
+      "description": "Remove the Meta Data from GET requests, specify true or false or leave empty for default value of true",
+      "in": "query",
+      "type": "boolean",
+      "required": false,
+      "allowEmptyValue": true
+    }
+  },
+  "responses": {
+  }
+}

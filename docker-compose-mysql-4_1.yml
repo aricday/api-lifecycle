@@ -1,0 +1,45 @@
+version: "2"
+services:
+  lac:
+    image: caliveapicreator/4.1.00
+    privileged: true
+    stdin_open: true
+    tty: true
+    environment:
+      RDS_HOSTNAME: "database"
+      RDS_PORT: "3306"
+      RDS_USERNAME: "lac_admin"
+      RDS_PASSWORD: "Password1"
+      RDS_DB_NAME: "lacadmindb"
+      CATALINA_OPTS: "--add-modules java.xml.bind $CATALINA_OPTS"
+      ca_accept_license: "enu"
+      LAC_ADMIN_MAX_CONN: "100"
+    links:
+      - "lac_db:database"
+    ports:
+      - "8081:8080"
+    expose:
+      - "8081"
+  lac_db:
+    image: mysql:5.7
+    privileged: true
+    environment:
+      MYSQL_ROOT_PASSWORD: "Password1"
+      MYSQL_PASSWORD: "Password1"
+      MYSQL_USER: "lac_admin"
+      MYSQL_DATABASE: "lacadmindb"
+    expose:
+      - "3306"
+
+## Ports mapped to host
+#    ports:
+#      - "3306:3306"
+#      - "host:container" # generic port mapping example
+
+## Uncomment selected lines for reliable persistence (no spaces!)
+#    volumes:
+#      - "data_volume:/var/lib/mysql" # persisted data volume example
+#      - "conf_volume:/etc/mysql/conf.d" # mysql *.cnf dir
+#volumes:
+#  data_volume: {}
+#  conf_volume: {}
