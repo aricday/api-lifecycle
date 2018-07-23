@@ -6,6 +6,19 @@ stages {
             checkout scm
         }
     }
+    stage('Build API Server') {
+        steps {
+            sh '/usr/local/bin/docker-compose -f docker-compose-mysql-4_1.yml up -d'
+            timeout(5) {
+               waitUntil {
+                  script {
+                     def r = sh script: 'wget -q http://jenkins.day.apim.ca.com:8081/APICreator/#/ -O /dev/null', returnStatus: true
+                     return (r == 0);
+                  }
+               }
+           }
+        }
+    }
     stage('Create API') {
         steps {
             sh 'curl -X POST -d @input.schema http://mag.gateway.day.apim.ca.com:8080/pushToLac -H "Content-Type: application/json"'
