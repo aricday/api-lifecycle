@@ -4,7 +4,7 @@
     "title": "Customer",
     "version": "v1"
   },
-  "host": "34.210.71.26:8081",
+  "host": "jenkins.day.apim.ca.com:8081",
   "schemes": [
     "http"
   ],
