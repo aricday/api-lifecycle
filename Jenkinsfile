@@ -9,6 +9,7 @@ stages {
     stage('Create API') {
         steps {
             sh 'curl -X POST -d @input.schema http://mag.gateway.day.apim.ca.com:8080/pushToLac -H "Content-Type: application/json"'
+            sleep 5
         }
     }
    stage('Deploy API to Test') {
