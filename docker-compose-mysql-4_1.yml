@@ -13,6 +13,7 @@ services:
       RDS_DB_NAME: "lacadmindb"
       CATALINA_OPTS: "--add-modules java.xml.bind $CATALINA_OPTS"
       ca_accept_license: "enu"
+      LAC_DEFAULT_LICENSE_FILE: "/home/centos/LAClicense.json"
       LAC_ADMIN_MAX_CONN: "100"
     links:
       - "lac_db:database"
