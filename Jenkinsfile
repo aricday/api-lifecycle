@@ -8,11 +8,11 @@ stages {
     }
     stage('Build API Server') {
         steps {
-            sh '/usr/local/bin/docker-compose -f docker-compose-mysql-4_1.yml up -d'
+            sh 'docker-compose -f docker-compose-mysql-4_1.yml up -d'
             timeout(5) {
                waitUntil {
                   script {
-                     def r = sh script: 'wget -q http://jenkins.day.apim.ca.com:8081/APICreator/#/ -O /dev/null', returnStatus: true
+                     def r = sh script: 'wget -q http://localhost:8081/APICreator/#/ -O /dev/null', returnStatus: true
                      return (r == 0);
                   }
                }
