@@ -12,7 +12,7 @@ stages {
             timeout(5) {
                waitUntil {
                   script {
-                     def r = sh script: 'wget -q http://localhost:8081/APICreator/#/ -O /dev/null', returnStatus: true
+                     def r = sh script: 'wget -q http://jenkins.day.apim.ca.com:8081/APICreator/#/ -O /dev/null', returnStatus: true
                      return (r == 0);
                   }
                }
@@ -35,9 +35,9 @@ stages {
             sh 'curl -X POST -d @swagger.json -H "Content-Type: application/json" http://gw1.day.apim.ca.com:8080/buildBlazeTest > file.json'     
         }
     }
-    stage('Run Unit Tests ') {
+    stage('Run Blazemeter Tests ') {
         steps {
-           sh 'bzt file.json .bzt-rc'
+            sh 'curl -X POST -d @swagger.json -H "Content-Type: application/json" http://gw1.day.apim.ca.com:8080/runBlazemeter'     
         }
     }
 
