@@ -37,7 +37,7 @@ stages {
     }
     stage('Run Blazemeter Tests ') {
         steps {
-            sh 'curl -X POST -d @swagger.json -H "Content-Type: application/json" http://mag.gateway.day.apim.ca.com:8080/runBlazemeter'     
+           sh 'bzt file.json .bzt-rc'
         }
     }
 
