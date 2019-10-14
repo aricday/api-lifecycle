@@ -30,19 +30,19 @@
 
 modules:
   blazemeter:
-    token: 366f4910b76d679b08b7c3cb:34e8096eb3aaeac28fc90a9949eee71c973c9aed059c3b55209d43945060cb113e5e84c5  # API id and API secret joined with ':'
+    token: a3a82d5a2e4ee21cfba96926:16550b33c7159531ecd247e8107ab9c73605b31765593789b9709e9647ba334632f8d572  # API id and API secret joined with ':'
 
     test: Test for Aric  # name for test to store reports
-    project: 299881  # name for project to store test, can be numeric project ID
+    project: 438189  # name for project to store test, can be numeric project ID
     public-report: false  # set to true to create a public link to the report
 
     browser-open: none  # auto-open the report in browser,
                          # can be "start", "end", "both", "none"
     send-interval: 30s   # send data each n-th second
-    timeout: 5s  # connect and request timeout for BlazeMeter API
+    timeout: 6s  # connect and request timeout for BlazeMeter API
     artifact-upload-size-limit: 10  # limit max size of file (in megabytes)
                                    # that goes into zip for artifact upload, 10 by default
-    check-interval: 5s  # interval which Taurus uses to query test status from BlazeMeter
+    check-interval: 4s  # interval which Taurus uses to query test status from BlazeMeter
 
 ---
 
