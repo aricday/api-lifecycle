@@ -12,7 +12,7 @@ stages {
             timeout(5) {
                waitUntil {
                   script {
-                     def r = sh script: 'wget -q http://jenkins.day.apim.ca.com:8081/APICreator/#/ -O /dev/null', returnStatus: true
+                     def r = sh script: 'wget -q http://34.83.58.210:8081/APICreator/#/ -O /dev/null', returnStatus: true
                      return (r == 0);
                   }
                }
