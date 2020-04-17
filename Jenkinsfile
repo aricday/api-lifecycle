@@ -8,7 +8,7 @@ stages {
     }
     stage('Build API Server') {
         steps {
-            sh 'docker-compose -f docker-compose-mysql-4_1.yml up -d'
+            sh 'docker-compose -f docker-compose-mysql-5_3.yml up -d'
             timeout(5) {
                waitUntil {
                   script {
