@@ -20,6 +20,8 @@ services:
       - "8081"
     volumes:
       - /home/AricDay/lac_license.json:/license/lac_license.json
+      # The below line would share your modified configuration to the instance.
+      #- ./configuration.zip:/usr/local/tomcat/webapps/ROOT/WEB-INF/classes/configuration.zip
       #- /home/AricDay/CALiveAPICreator.repository:/home/tomcat/CALiveAPICreator.repository
       #- /home/AricDay/databases:/usr/local/CALiveAPICreator/databases
   lac_mysqldb:
